@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ariska</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #2d1f26;
+      --muted: #7a626b;
+      --cream: #fff8ef;
+      --blush: #ffdce7;
+      --rose: #e987a8;
+      --wine: #5b2d40;
+      --gold: #c99a4f;
+      --gold-light: #ffe0a6;
+      --white: rgba(255, 255, 255, .78);
+      --glass: rgba(255, 255, 255, .62);
+      --shadow: 0 28px 90px rgba(91, 45, 64, .20);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 220, 231, .95), transparent 30%),
+        radial-gradient(circle at 88% 16%, rgba(255, 224, 166, .80), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(233, 135, 168, .22), transparent 34%),
+        linear-gradient(135deg, #fff9f0 0%, #fff3f8 48%, #f8e7dc 100%);
+      overflow-x: hidden;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      opacity: .035;
+      pointer-events: none;
+      background-image:
+        linear-gradient(90deg, #000 1px, transparent 1px),
+        linear-gradient(#000 1px, transparent 1px);
+      background-size: 34px 34px;
+      z-index: 1;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(18px);
+      opacity: .65;
+      pointer-events: none;
+      animation: drift 9s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .orb.one {
+      width: 210px;
+      height: 210px;
+      background: rgba(233, 135, 168, .45);
+      top: 9%;
+      left: -70px;
+    }
+
+    .orb.two {
+      width: 260px;
+      height: 260px;
+      background: rgba(255, 224, 166, .55);
+      right: -110px;
+      top: 22%;
+      animation-delay: -3s;
+    }
+
+    .orb.three {
+      width: 220px;
+      height: 220px;
+      background: rgba(197, 151, 87, .20);
+      left: 30%;
+      bottom: -120px;
+      animation-delay: -5s;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+      color: var(--wine);
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--wine), #9c5870);
+      color: white;
+      box-shadow: 0 14px 34px rgba(91, 45, 64, .23);
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 15px;
+      border-radius: 999px;
+      color: var(--wine);
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .58);
+      border: 1px solid rgba(201, 154, 79, .23);
+      box-shadow: 0 12px 30px rgba(91, 45, 64, .08);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 42px;
+      padding: 28px 0 76px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: var(--wine);
+      background: rgba(255, 255, 255, .60);
+      border: 1px solid rgba(201, 154, 79, .24);
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 12px 32px rgba(91, 45, 64, .08);
+      backdrop-filter: blur(16px);
+      margin-bottom: 22px;
+    }
+
+    .headline {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: .91;
+      letter-spacing: -3.6px;
+      color: var(--ink);
+      max-width: 720px;
+    }
+
+    .script {
+      font-family: "Great Vibes", cursive;
+      display: block;
+      font-size: clamp(70px, 9vw, 122px);
+      font-weight: 400;
+      line-height: .88;
+      color: var(--rose);
+      text-shadow: 0 14px 36px rgba(233, 135, 168, .22);
+      margin-top: 4px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 610px;
+      margin: 24px 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .lead strong {
+      color: var(--wine);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--wine), #a05773);
+      box-shadow: 0 18px 42px rgba(91, 45, 64, .25);
+    }
+
+    .btn-secondary {
+      color: var(--wine);
+      background: rgba(255, 255, 255, .68);
+      border: 1px solid rgba(201, 154, 79, .24);
+      box-shadow: 0 14px 34px rgba(91, 45, 64, .08);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 640px;
+      gap: 12px;
+    }
+
+    .meta {
+      position: relative;
+      padding: 16px 15px;
+      border-radius: 22px;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, .78);
+      box-shadow: 0 16px 40px rgba(91, 45, 64, .09);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .meta::before {
+      content: "";
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      background: rgba(255, 224, 166, .35);
+      right: -20px;
+      top: -24px;
+    }
+
+    .meta small {
+      display: block;
+      color: #967984;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .meta strong {
+      position: relative;
+      display: block;
+      color: var(--wine);
+      font-size: 15px;
+      line-height: 1.3;
+      z-index: 1;
+    }
+
+    .phone-wrap {
+      position: relative;
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+    }
+
+    .cute-badge {
+      position: absolute;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 15px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(201, 154, 79, .21);
+      box-shadow: 0 18px 44px rgba(91, 45, 64, .14);
+      color: var(--wine);
+      font-size: 13px;
+      font-weight: 800;
+      backdrop-filter: blur(16px);
+      animation: bob 4s ease-in-out infinite;
+    }
+
+    .cute-badge.one {
+      top: 62px;
+      left: 10px;
+    }
+
+    .cute-badge.two {
+      right: 0;
+      bottom: 130px;
+      animation-delay: -1.3s;
+    }
+
+    .phone {
+      width: min(370px, 92vw);
+      min-height: 620px;
+      padding: 14px;
+      border-radius: 48px;
+      background: linear-gradient(145deg, #4d2a39, #20141b);
+      box-shadow:
+        0 36px 95px rgba(91, 45, 64, .30),
+        inset 0 1px 0 rgba(255, 255, 255, .24);
+      position: relative;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      width: 96px;
+      height: 24px;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0 0 16px 16px;
+      background: #20141b;
+      z-index: 5;
+    }
+
+    .screen {
+      min-height: 592px;
+      border-radius: 38px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 224, 166, .70), transparent 35%),
+        linear-gradient(180deg, #fff9f1, #ffeaf2 54%, #fff7ed);
+      position: relative;
+      padding: 52px 25px 26px;
+    }
+
+    .screen-shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.55) 42%, transparent 58%);
+      transform: translateX(-100%);
+      animation: shine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .mini-date {
+      width: max-content;
+      margin: 0 auto 18px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--wine);
+      background: rgba(255, 255, 255, .62);
+      border: 1px solid rgba(201, 154, 79, .24);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .portrait {
+      width: 158px;
+      height: 158px;
+      margin: 0 auto 18px;
+      border-radius: 48% 52% 48% 52%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 35% 28%, #fff 0 0, transparent 28%),
+        linear-gradient(135deg, #ffdce7, #ffe0a6);
+      border: 8px solid rgba(255,255,255,.75);
+      box-shadow: 0 24px 55px rgba(91, 45, 64, .16);
+      animation: morph 6s ease-in-out infinite;
+      position: relative;
+    }
+
+    .portrait::after {
+      content: "🎀";
+      position: absolute;
+      right: -8px;
+      top: 22px;
+      font-size: 34px;
+      filter: drop-shadow(0 8px 10px rgba(91, 45, 64, .14));
+      transform: rotate(12deg);
+    }
+
+    .portrait span {
+      font-size: 78px;
+      filter: drop-shadow(0 12px 16px rgba(91, 45, 64, .13));
+    }
+
+    .phone-title {
+      font-family: "Playfair Display", serif;
+      text-align: center;
+      color: var(--wine);
+      font-size: 36px;
+      line-height: 1.02;
+      letter-spacing: -.9px;
+    }
+
+    .phone-title .phone-script {
+      display: block;
+      font-family: "Great Vibes", cursive;
+      font-size: 60px;
+      color: var(--rose);
+      font-weight: 400;
+      margin-top: -4px;
+    }
+
+    .mini-copy {
+      margin: 15px auto 19px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+      max-width: 280px;
+    }
+
+    .chips {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.66);
+      color: var(--wine);
+      font-size: 12px;
+      font-weight: 900;
+      border: 1px solid rgba(201,154,79,.20);
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .time-card {
+      border-radius: 18px;
+      padding: 12px 7px;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(255,255,255,.85);
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(91,45,64,.08);
+    }
+
+    .time-card strong {
+      display: block;
+      color: var(--wine);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .time-card small {
+      display: block;
+      margin-top: 5px;
+      color: #9c8088;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.02;
+      color: var(--wine);
+      letter-spacing: -1.3px;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .wish-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 28px;
+    }
+
+    .gift-card,
+    .letter {
+      border-radius: 34px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .gift-card {
+      padding: 24px;
+      min-height: 340px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .gift-card::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border-radius: 28px;
+      border: 1px dashed rgba(201,154,79,.50);
+      pointer-events: none;
+    }
+
+    .gift-icon {
+      width: 138px;
+      height: 138px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 42px;
+      background: linear-gradient(135deg, var(--wine), #b76282);
+      color: white;
+      font-size: 68px;
+      box-shadow: 0 24px 60px rgba(91,45,64,.24);
+      animation: softBounce 3.2s ease-in-out infinite;
+    }
+
+    .gift-card h3 {
+      font-family: "Playfair Display", serif;
+      color: var(--wine);
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .gift-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 330px;
+      margin: 0 auto;
+    }
+
+    .letter {
+      padding: 34px;
+      position: relative;
+    }
+
+    .letter::before {
+      content: "❤";
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      color: rgba(233,135,168,.24);
+      font-size: 92px;
+      line-height: 1;
+    }
+
+    .letter h3 {
+      font-family: "Great Vibes", cursive;
+      font-size: 58px;
+      color: var(--rose);
+      font-weight: 400;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .letter p {
+      position: relative;
+      color: #6c535c;
+      font-size: 16px;
+      line-height: 1.92;
+      margin-bottom: 16px;
+    }
+
+    .signature {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: var(--wine);
+      background: rgba(255,255,255,.60);
+      border: 1px solid rgba(201,154,79,.20);
+      font-weight: 900;
+    }
+
+    .qualities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .quality {
+      padding: 20px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.75);
+      box-shadow: 0 18px 52px rgba(91,45,64,.10);
+      backdrop-filter: blur(18px);
+      text-align: center;
+      transition: transform .22s ease;
+    }
+
+    .quality:hover {
+      transform: translateY(-5px);
+    }
+
+    .quality .emoji {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      margin: 0 auto 12px;
+      background: linear-gradient(135deg, #fff, #ffeaf2);
+      box-shadow: 0 14px 30px rgba(91,45,64,.09);
+      font-size: 28px;
+    }
+
+    .quality h4 {
+      color: var(--wine);
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .quality p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .final-card {
+      margin: 20px auto 92px;
+      max-width: 840px;
+      border-radius: 40px;
+      padding: 34px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,224,166,.42), transparent 34%),
+        linear-gradient(135deg, rgba(91,45,64,.95), rgba(150,79,105,.94));
+      color: white;
+      box-shadow: 0 34px 95px rgba(91,45,64,.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      right: -90px;
+      bottom: -110px;
+    }
+
+    .final-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.02;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .final-card p {
+      position: relative;
+      max-width: 630px;
+      margin: 0 auto 22px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.8;
+    }
+
+    .final-card .btn {
+      position: relative;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--wine);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -30px;
+      color: rgba(233,135,168,.82);
+      animation: heartFloat 4.2s ease-in forwards;
+      filter: drop-shadow(0 12px 14px rgba(91,45,64,.10));
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 30px);
+      opacity: 0;
+      width: min(420px, calc(100% - 34px));
+      padding: 15px 17px;
+      border-radius: 22px;
+      background: rgba(45, 31, 38, .88);
+      color: white;
+      box-shadow: 0 20px 60px rgba(45,31,38,.26);
+      backdrop-filter: blur(18px);
+      z-index: 50;
+      transition: .35s ease;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-22px) translateX(18px) scale(1.04); }
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-14px) rotate(2deg); }
+    }
+
+    @keyframes shine {
+      0%, 35% { transform: translateX(-120%); }
+      55%, 100% { transform: translateX(120%); }
+    }
+
+    @keyframes morph {
+      0%, 100% { border-radius: 48% 52% 48% 52%; transform: translateY(0); }
+      50% { border-radius: 56% 44% 53% 47%; transform: translateY(-6px); }
+    }
+
+    @keyframes softBounce {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+
+    @keyframes heartFloat {
+      to {
+        transform: translateY(-105vh) translateX(var(--x)) rotate(28deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-top: 10px;
+      }
+
+      .phone-wrap {
+        min-height: auto;
+        padding: 8px 0 0;
+      }
+
+      .cute-badge.one {
+        left: 0;
+        top: 34px;
+      }
+
+      .cute-badge.two {
+        right: 0;
+        bottom: 70px;
+      }
+
+      .wish-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .qualities {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .nav-pill {
+        display: none;
+      }
+
+      .headline {
+        letter-spacing: -2.1px;
+      }
+
+      .lead {
+        font-size: 15.5px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-row {
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .phone {
+        width: 100%;
+        border-radius: 38px;
+        padding: 10px;
+        min-height: auto;
+      }
+
+      .screen {
+        min-height: 560px;
+        border-radius: 30px;
+        padding: 48px 18px 22px;
+      }
+
+      .phone-title {
+        font-size: 32px;
+      }
+
+      .phone-title .phone-script {
+        font-size: 56px;
+      }
+
+      .countdown {
+        gap: 6px;
+      }
+
+      .time-card strong {
+        font-size: 18px;
+      }
+
+      .cute-badge {
+        display: none;
+      }
+
+      .letter,
+      .gift-card,
+      .final-card {
+        border-radius: 30px;
+        padding: 25px 20px;
+      }
+
+      .letter h3 {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+  <div class="hearts" id="hearts"></div>
+  <div class="toast" id="toast">Ariska, kamu tercantik, terimut, terbawal, dan paling spesial. 💖</div>
+
+  <div class="page">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <span>Birthday For Ariska</span>
+      </div>
+      <div class="nav-pill">20 Juli 2026 • With Love</div>
+    </nav>
+
+    <main class="hero">
+      <section>
+        <div class="eyebrow">🎂 Ucapan ulang tahun digital</div>
+
+        <h1 class="headline">
+          Happy Birthday
+          <span class="script">Ariska</span>
+        </h1>
+
+        <p class="lead">
+          Untuk kekasihku <strong>Ariska</strong>, perempuan yang
+          <strong>tercantik</strong>, <strong>terimut</strong>, dan <strong>terbawal</strong>.
+          Hari spesial ini dibuat lebih manis, elegan, dan lucu khusus untuk kamu.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#surat">Buka Ucapan Manis ✨</a>
+          <button class="btn btn-secondary" type="button" onclick="sendLove()">Kirim Love 💖</button>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta">
+            <small>Nama</small>
+            <strong>Ariska</strong>
+          </div>
+          <div class="meta">
+            <small>Tanggal</small>
+            <strong>20 Juli 2026</strong>
+          </div>
+          <div class="meta">
+            <small>Vibes</small>
+            <strong>Elegant, Cute, Romantic</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="phone-wrap" aria-label="Birthday preview">
+        <div class="cute-badge one">🐻 Terimut sedunia</div>
+        <div class="cute-badge two">👑 Tercantik selalu</div>
+
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-shine"></div>
+
+            <div class="mini-date">20 Juli 2026</div>
+
+            <div class="portrait">
+              <span>👸🏻</span>
+            </div>
+
+            <h2 class="phone-title">
+              Special Day
+              <span class="phone-script">Ariska</span>
+            </h2>
+
+            <p class="mini-copy">
+              Hari ini dunia terasa lebih manis, karena seseorang yang paling lucu dan paling spesial sedang berulang tahun.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Tercantik</span>
+              <span class="chip">Terimut</span>
+              <span class="chip">Terbawal</span>
+            </div>
+
+            <div class="countdown" id="countdown">
+              <div class="time-card"><strong id="days">00</strong><small>Hari</small></div>
+              <div class="time-card"><strong id="hours">00</strong><small>Jam</small></div>
+              <div class="time-card"><strong id="minutes">00</strong><small>Menit</small></div>
+              <div class="time-card"><strong id="seconds">00</strong><small>Detik</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="section" id="surat">
+      <div class="section-head">
+        <div class="section-kicker">A Little Love Letter</div>
+        <h2 class="section-title">Ucapan kecil untuk Ariska</h2>
+        <p class="section-desc">
+          Dibuat dengan tampilan profesional, soft luxury, dan tetap ada sentuhan lucu agar terasa hangat, manis, dan tidak kaku.
+        </p>
+      </div>
+
+      <div class="wish-panel">
+        <div class="gift-card">
+          <div>
+            <div class="gift-icon">🎁</div>
+            <h3>For My Love</h3>
+            <p>
+              Satu halaman kecil ini mungkin sederhana, tapi dibuat khusus untuk orang yang paling aku sayang.
+            </p>
+          </div>
+        </div>
+
+        <div class="letter">
+          <h3>Dear Ariska,</h3>
+          <p>
+            Selamat ulang tahun, sayang. Semoga di tanggal <strong>20 Juli 2026</strong> ini,
+            semua hal baik datang mendekat ke hidupmu. Semoga senyummu selalu dijaga,
+            hatimu selalu bahagia, dan langkahmu selalu dimudahkan.
+          </p>
+          <p>
+            Kamu itu <strong>tercantik</strong>, <strong>terimut</strong>, <strong>terbawal</strong>,
+            dan tetap jadi orang yang paling spesial buat aku. Jangan pernah berhenti jadi Ariska
+            yang manis, lucu, dan bikin hari-hari terasa lebih hidup.
+          </p>
+          <div class="signature">💌 Dari seseorang yang sayang kamu</div>
+        </div>
+      </div>
+
+      <div class="qualities">
+        <div class="quality">
+          <div class="emoji">👑</div>
+          <h4>Tercantik</h4>
+          <p>Cantik bukan cuma dari wajah, tapi juga dari cara kamu membuat dunia terasa lebih hangat.</p>
+        </div>
+        <div class="quality">
+          <div class="emoji">🧸</div>
+          <h4>Terimut</h4>
+          <p>Lucunya kamu itu sederhana, tapi efeknya bisa bikin senyum seharian.</p>
+        </div>
+        <div class="quality">
+          <div class="emoji">💗</div>
+          <h4>Terbawal</h4>
+          <p>Sifatmu yang khas bikin kamu beda, berkesan, dan selalu punya tempat spesial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-card">
+      <h2>Happy Birthday, Ariska 💖</h2>
+      <p>
+        Semoga ulang tahun ini jadi awal dari banyak cerita indah, banyak tawa kecil,
+        banyak doa yang terkabul, dan banyak alasan baru untuk bahagia.
+      </p>
+      <button class="btn" type="button" onclick="sendLove()">Klik untuk Love Rain ✨</button>
+    </section>
+  </div>
+
+  <script>
+    const targetDate = new Date("2026-07-20T00:00:00+07:00").getTime();
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
+
+      if (distance <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    function sendLove() {
+      const hearts = document.getElementById("hearts");
+      const toast = document.getElementById("toast");
+
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2600);
+
+      for (let i = 0; i < 34; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = ["💖", "💕", "💗", "✨", "🎀"][Math.floor(Math.random() * 5)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 18 + 16) + "px";
+        heart.style.setProperty("--x", (Math.random() * 120 - 60) + "px");
+        heart.style.animationDelay = Math.random() * .8 + "s";
+        heart.style.animationDuration = (Math.random() * 1.8 + 3.2) + "s";
+        hearts.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5600);
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
